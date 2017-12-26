@@ -1,4 +1,4 @@
-var DnaTranscriber = function() {
+var DnaTranscriber = function () {
 };
 
 var dnaOptions = ['C', 'G', 'A', 'T'];
@@ -6,11 +6,9 @@ var dnaOptionsRegex = /^[CGAT]+$/;
 var rnaOptions = ['G', 'C', 'U', 'A'];
 
 DnaTranscriber.prototype.toRna = function (dna) {
-    if (dna.length === 1 && this.isValid(dna) === true) {
-        return rnaOptions[dnaOptions.indexOf(dna)];
-    } else if (dna.length > 1 && this.isValid(dna) === true) {
+    if (dna.length >= 1 && this.isValid(dna)) {
         var result = [];
-        dna.split("").forEach(function(element) {
+        dna.split("").forEach(function (element) {
             result.push(rnaOptions[dnaOptions.indexOf(element)]);
         });
         return result.join("");
@@ -22,7 +20,6 @@ DnaTranscriber.prototype.toRna = function (dna) {
 DnaTranscriber.prototype.isValid = function (dna) {
     return dna.match(dnaOptionsRegex) ? true : false;
 };
-
 
 
 module.exports = DnaTranscriber;
