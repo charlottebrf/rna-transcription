@@ -18,18 +18,18 @@ describe('toRna()', function () {
     expect(dnaTranscriber.toRna('T')).toEqual('A');
   });
 
-  xit('transcribes all dna nucleotides to their rna complements', function () {
+  it('transcribes all dna nucleotides to their rna complements', function () {
     expect(dnaTranscriber.toRna('ACGTGGTCTTAA'))
       .toEqual('UGCACCAGAAUU');
   });
 
-  xit('correctly handles completely invalid input', function () {
+  it('correctly handles completely invalid input', function () {
     expect(function () { dnaTranscriber.toRna('XXX'); }).toThrow(
       new Error('Invalid input')
     );
   });
 
-  xit('correctly handles partially invalid input', function () {
+  it('correctly handles partially invalid input', function () {
     expect(function () { dnaTranscriber.toRna('ACGTXXXCTTAA'); }).toThrow(
       new Error('Invalid input')
     );
