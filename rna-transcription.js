@@ -13,7 +13,7 @@ DnaTranscriber.prototype.toRna = function (dna) {
         });
         return result.join("");
     } else {
-        throw 'Invalid input';
+        throw new Error('Invalid input');
     }
 };
 
